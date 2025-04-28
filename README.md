@@ -1,4 +1,5 @@
 iNotebook
+
 iNotebook is a full-stack web application that allows users to securely store, access, edit, and manage their personal notes after user authentication. Built using the MERN stack (MongoDB, Express.js, React.js, Node.js) and styled with Bootstrap for a responsive design.
 
 ✨ Features: 
