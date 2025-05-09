@@ -1,12 +1,14 @@
-const mongoose = require('mongoose');
-const { connected } = require('process');
+const mongoose = require("mongoose");
+const { connected } = require("process");
 
-const mongooseURI = "mongodb://localhost:27017/iNoteBook"
+require("dotenv").config();
 
 const connectToMongo = async () => {
-    mongoose.connection.on("connected", ()=>{console.log("connected")})  //Checking the connection
-    const data = await mongoose.connect(mongooseURI);   // Connectto mongo database
-    // console.log(data)
-}
+  mongoose.connection.on("connected", () => {
+    console.log("connected");
+  }); //Checking the connection
+  const data = await mongoose.connect(process.env.MONGO_URI); // Connectto mongo database
+  // console.log(data)
+};
 
 module.exports = connectToMongo;
