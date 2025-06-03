@@ -2,7 +2,6 @@ import { useState } from "react";
 import NoteContext from "./NoteContext";
 
 const NoteState = (props) => {
-
   const host = "http://localhost:5000";
 
   const [notes, setNotes] = useState([]);
@@ -14,7 +13,7 @@ const NoteState = (props) => {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "auth-token": localStorage.getItem('token') 
+        "auth-token": localStorage.getItem("token"),
       },
     });
     const json = await response.json();
@@ -28,14 +27,13 @@ const NoteState = (props) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "auth-token": localStorage.getItem('token') 
+        "auth-token": localStorage.getItem("token"),
       },
-      body: JSON.stringify({title, description, tag}),
+      body: JSON.stringify({ title, description, tag }),
     });
-    const note = await response.json()
+    const note = await response.json();
     setNotes(notes.concat(note));
   };
-
 
   // Delete a note
   const deleteNote = async (id) => {
@@ -44,11 +42,11 @@ const NoteState = (props) => {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
-        "auth-token": localStorage.getItem('token') 
+        "auth-token": localStorage.getItem("token"),
       },
     });
+    // eslint-disable-next-line
     const json = await response.json();
-    console.log(json)
     const newNotes = notes.filter((note) => {
       return note._id !== id;
     });
@@ -62,12 +60,12 @@ const NoteState = (props) => {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
-        "auth-token": localStorage.getItem('token') 
+        "auth-token": localStorage.getItem("token"),
       },
-      body: JSON.stringify({title, description, tag}),
+      body: JSON.stringify({ title, description, tag }),
     });
+    // eslint-disable-next-line
     const json = await response.json();
-    console.log(json)
 
     let newNotes = JSON.parse(JSON.stringify(notes));
     // Logic for client
@@ -79,11 +77,13 @@ const NoteState = (props) => {
         break;
       }
     }
-    setNotes(newNotes)
+    setNotes(newNotes);
   };
 
   return (
-    <NoteContext.Provider value={{ notes, addNote, deleteNote, editNote, getNote }}>
+    <NoteContext.Provider
+      value={{ notes, addNote, deleteNote, editNote, getNote }}
+    >
       {props.children}
     </NoteContext.Provider>
   );

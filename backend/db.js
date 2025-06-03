@@ -8,7 +8,6 @@ const connectToMongo = async () => {
     console.log("connected");
   }); //Checking the connection
   const data = await mongoose.connect(process.env.MONGO_URI); // Connectto mongo database
-  // console.log(data)
 };
 
 module.exports = connectToMongo;
