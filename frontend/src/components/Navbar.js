@@ -14,7 +14,7 @@ const Navbar = () => {
 
   const fetchUserData = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/auth/getuser', {
+      const response = await fetch('https://inotebook-website-backend.onrender.com/api/auth/getuser', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
