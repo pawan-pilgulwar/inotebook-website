@@ -6,6 +6,8 @@ import About from "./components/About";
 import NoteState from "./context/notes/NoteState";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
+import Dashboard from "./components/Dashboard";
+import Profile from "./components/Profile";
 import { useState } from "react";
 import Alerts from "./components/Alert";
 
@@ -34,6 +36,8 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/login" element={<Login showAlert={showAlert} />} />
           <Route path="/signup" element={<Signup showAlert={showAlert} />} />
+          <Route path="/dashboard" element={<Dashboard showAlert={showAlert} />} />
+          <Route path="/profile" element={<Profile showAlert={showAlert} />} />
         </Routes>
         </div>
       </NoteState>

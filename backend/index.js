@@ -14,6 +14,6 @@ app.use("/api/auth", require("./routes/auth")); // creating endpoints for authit
 app.use("/api/notes", require("./routes/notes")); // creating endpoints for editng Notes
 
 // listening ports
-app.listen(port, () => {
+app.listen(port, (req, res) => {
   console.log(`iNotebook backend listening on port http://localhost:${port}`);
 });
